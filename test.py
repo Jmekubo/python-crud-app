@@ -16,7 +16,7 @@ class TestBase(TestCase):
         config_name = 'testing'
         app = create_app(config_name)
         app.config.update(
-            SQLALCHEMY_DATABASE_URI='mysql://root:Greenwich20@@localhost/dreamteam_test'
+            SQLALCHEMY_DATABASE_URI='mysql://root:admnpasswword@localhost/dreamteam_test'
         )
         return app
 
@@ -28,10 +28,10 @@ class TestBase(TestCase):
         db.create_all()
 
         # create test admin user
-        admin = Employee(username="admin", password="admin2020", is_admin=True)
+        admin = Employee(username="admin", password="******", is_admin=True)
 
         # create test non-admin user
-        employee = Employee(username="test_user", password="test2020")
+        employee = Employee(username="test_user", password="********")
 
         # save users to database
         db.session.add(admin)
